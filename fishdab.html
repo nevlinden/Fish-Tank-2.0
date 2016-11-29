@@ -27,19 +27,33 @@
 
         Eel eelWidthNoParameters = new Eel(); 
 
-        Eel eelHeightNoParameters = new Eel(); 
+        Eel eelHeightNoParameters = new Eel();
+
+        Seaweed randomSeaweed = new Seaweed(100, 200);
+
+        Seaweed seaweedWidthNoParameters = new Seaweed(); 
+
+        Seaweed seaweedHeightNoParameters = new Seaweed();  
+
+
 
         //since these are variables we don't want to ever change in the code, we capitalize them 
         var WINDOW_WIDTH = 400;
         var WINDOW_HEIGHT = 400; 
         var GREY = 204;
+        ArrayList<Fish> fishList;
+
         //This function only runs once at the start of the program
         void setup() {
           size(WINDOW_WIDTH, WINDOW_HEIGHT); //sets the size of the window
         
           frameRate(30); //how many times the draw function is called per second
+
+
         
+          }
         }
+
         
         
         //called repeatedly
@@ -50,9 +64,9 @@
           slowLine.moveLine(); 
         
           fastLine.moveLine();  
-
+          } 
+          
           randomFish.drawFish();
-
           randomFish.swim();
 
           randomShark.drawShark();
@@ -62,6 +76,8 @@
           randomEel.drawEel();
 
           randomEel.swim();
+
+          randomSeaweed.drawSeaweed();
         
         } 
         
@@ -112,7 +128,7 @@
           class Fish
           {
             //attributes
-            var bodyHeight, bodyWidth, tailHeight, tailWidth,bodyColor;
+            var centerX, center Y, bodyHeight, bodyWidth, tailHeight, tailWidth, bodyColor;
 
             //constructor
             Fish(var fh, var fw)
@@ -243,8 +259,35 @@
               if(eelCenterX-eelWidth > width){
                 eelCenterX = -eelWidth/2;
               }
-
              }
+            }
+
+
+            class Seaweed
+          {
+            //attributes
+            var seaweedHeight, seaweedWidth, seaweedColor;
+
+            //constructor
+            Seaweed(var sh, var sw)
+            {
+
+                //attributes on the left, paramters on the right
+                seaweedHeight = random(5,15);
+                seaweedWidth = random(90,120);
+                seaweedColor = color(50, 145, 95);
+                seaweedCenterX = random(15,350);
+                seaweedCenterY = (400);
+
+
+            }
+
+              void drawSeaweed()
+            {
+              noStroke();
+              fill(seaweedColor);
+              rect(seaweedCenterX,seaweedCenterY,seaweedHeight,0-seaweedWidth);  
+            }
             }
             
           
